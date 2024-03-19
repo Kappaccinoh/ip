@@ -44,12 +44,22 @@ public class Campus {
         return message;
     }
 
+    /**
+     * Generates and returns a greeting message to be displayed.
+     *
+     * @return The greeting message.
+     */
     public String printGreeting() {
         String message = this.ui.printGreeting();
         assert (message != null);
         return message;
     }
 
+    /**
+     * Generates and returns an exiting message to be displayed.
+     *
+     * @return The exiting message.
+     */
     public String printExiting() {
         String message = this.ui.printExiting();
         assert (message != null);

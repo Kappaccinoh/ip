@@ -14,6 +14,11 @@ public class Ui {
     @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
     private String LINE_BREAK = "";
 
+    /**
+     * Generates a formatted greeting message to be displayed.
+     *
+     * @return The formatted greeting message.
+     */
     public String printGreeting() {
 
         String message = LINE_BREAK

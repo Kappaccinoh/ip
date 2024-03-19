@@ -1,8 +1,8 @@
 package campus.tasks;
 
-import campus.exceptions.CampusException;
-
 import java.time.LocalDateTime;
+
+import campus.exceptions.CampusException;
 
 /**
  * Contains logic for the Deadline class that extends the abstract Task Class
@@ -11,6 +11,13 @@ import java.time.LocalDateTime;
 public class Deadline extends Task {
     LocalDateTime endDateTime;
 
+    /**
+     * Constructs a new Deadline object with the specified deadline name and end datetime.
+     *
+     * @param deadlineName The name of the deadline.
+     * @param endDateTime  The end datetime of the deadline in the format (HHmm dd/MM/yyyy).
+     * @throws CampusException If the end datetime does not match the required format.
+     */
     public Deadline(String deadlineName, String endDateTime) throws CampusException {
         this.taskName = deadlineName;
         this.isCompleted = false;
@@ -22,11 +29,21 @@ public class Deadline extends Task {
         }
     }
 
+    /**
+     * Constructs a new Deadline object with the specified deadline name, completion status, and end datetime.
+     *
+     * @param deadlineName The name of the deadline.
+     * @param completed    The completion status of the deadline.
+     * @param endDateTime  The end datetime of the deadline in the format (HHmm dd/MM/yyyy).
+     * @throws CampusException If the end datetime does not match the required format.
+     */
     public Deadline(String deadlineName, Boolean completed, String endDateTime) throws CampusException {
         this.taskName = deadlineName;
         this.isCompleted = completed;
         if (!isValidDateTimeFormat(endDateTime, this.formatter)) {
-            throw new CampusException("Error! A deadline task must have an end datetime in the correct format, please follow the following syntax: deadline <deadline name> /by <endDateTime (HHmm dd/MM/yyyy)>\n");
+            throw new CampusException("Error! A deadline task must have an end datetime in the correct format, "
+                    + "please follow the following syntax: deadline "
+                    + "<deadline name> /by <endDateTime (HHmm dd/MM/yyyy)>\n");
         } else {
             this.endDateTime = LocalDateTime.parse(endDateTime, this.formatter);
         }
@@ -49,7 +66,7 @@ public class Deadline extends Task {
     }
 
     @Override
-    public String toDBFormat() {
+    public String toDbFormat() {
         String completed = this.isCompleted ? "1" : "0";
         return String.format("D | %s | %s | %s", completed, this.taskName, this.endDateTime.format(this.formatter));
     }

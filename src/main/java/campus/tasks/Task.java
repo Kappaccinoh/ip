@@ -7,7 +7,7 @@ import java.time.format.DateTimeParseException;
 /**
  * Class object which represents a Task, which has a name and a status completion.
  */
-abstract public class Task {
+public abstract class Task {
     public boolean isCompleted;
     public String taskName;
     public DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HHmm dd/MM/yyyy");
@@ -27,9 +27,9 @@ abstract public class Task {
         }
     }
 
-    abstract public void markComplete();
+    public abstract void markComplete();
 
-    abstract public void markIncomplete();
+    public abstract void markIncomplete();
 
-    abstract public String toDBFormat();
+    public abstract String toDbFormat();
 }

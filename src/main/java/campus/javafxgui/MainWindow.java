@@ -1,18 +1,17 @@
 package campus.javafxgui;
 
+import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
 import javafx.application.Platform;
-import campus.Campus;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-
-import java.util.Objects;
 
 /**
  * Controller for MainWindow. Provides the layout for the other controls.
@@ -61,11 +60,19 @@ public class MainWindow extends AnchorPane {
         }
     }
 
+    /**
+     * Prints the greeting message of the Campus application and displays it in the dialog container.
+     */
     public void printGreetMessage() {
         String msg = campus.printGreeting();
         dialogContainer.getChildren().add(DialogBox.getCampusDialog(msg, campusImage));
     }
 
+    /**
+     * Terminates the application after a delay of 2 seconds.
+     * This method schedules the termination of the program using a single-threaded scheduled executor.
+     * It exits the JavaFX platform after the specified delay.
+     */
     public void terminate() {
         // Schedule program exit after 2 seconds
         ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();

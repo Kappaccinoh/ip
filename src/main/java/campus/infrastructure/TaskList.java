@@ -117,11 +117,21 @@ public class TaskList {
         this.tasks.remove(task);
     }
 
+    /**
+     * Marks the given task as completed.
+     *
+     * @param task The task to be marked as completed.
+     */
     public void markDone(Task task) {
         task.markComplete();
         assert(task.isCompleted);
     }
 
+    /**
+     * Marks the given task as incomplete.
+     *
+     * @param task The task to be marked as incomplete.
+     */
     public void markUndone(Task task) {
         task.markIncomplete();
         assert(!task.isCompleted);

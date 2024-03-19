@@ -31,7 +31,7 @@ public class ToDos extends Task {
     }
 
     @Override
-    public String toDBFormat() {
+    public String toDbFormat() {
         String completed = this.isCompleted ? "1" : "0";
         return String.format("T | %s | %s", completed, this.taskName);
     }

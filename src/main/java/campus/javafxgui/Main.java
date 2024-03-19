@@ -1,5 +1,7 @@
 package campus.javafxgui;
 
+import java.io.IOException;
+
 import campus.Campus;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,8 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
+/**
+ * The main class responsible for starting the Campus application.
+ */
 public class Main extends Application {
     private Campus campus = new Campus();
     @Override

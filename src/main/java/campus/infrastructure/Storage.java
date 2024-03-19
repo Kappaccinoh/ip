@@ -1,15 +1,15 @@
 package campus.infrastructure;
 
-import java.nio.file.Files;
 import java.io.BufferedWriter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 import campus.tasks.Task;
 
@@ -29,7 +29,7 @@ public class Storage {
         this.filePath = filePath;
 
         try {
-            this.listOfStrings = this.readFromDBCreateIfNotExists(this.filePath);
+            this.listOfStrings = this.readFromDbCreateIfNotExists(this.filePath);
         } catch (FileNotFoundException e) {
             System.err.println("Error: " + e.getMessage());
         } catch (IOException e) {
@@ -69,7 +69,7 @@ public class Storage {
             this.filePath = filePath;
 
             try {
-                this.listOfStrings = this.readFromDBCreateIfNotExists(this.filePath);
+                this.listOfStrings = this.readFromDbCreateIfNotExists(this.filePath);
             } catch (FileNotFoundException e) {
                 System.err.println("Error: " + e.getMessage());
             } catch (IOException e) {
@@ -91,7 +91,7 @@ public class Storage {
      *         was just created.
      * @throws IOException If an I/O error occurs while reading the file.
      */
-    public List<String> readFromDBCreateIfNotExists(String filePath) throws IOException {
+    public List<String> readFromDbCreateIfNotExists(String filePath) throws IOException {
         Path path = Paths.get(filePath);
         if (!Files.exists(path)) {
             Files.createFile(path);
@@ -110,7 +110,7 @@ public class Storage {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             List<Task> listOfTasks = taskList.getListOfTasks();
             for (Task task : listOfTasks) {
-                writer.write(task.toDBFormat());
+                writer.write(task.toDbFormat());
                 writer.newLine();
             }
         } catch (IOException e) {
