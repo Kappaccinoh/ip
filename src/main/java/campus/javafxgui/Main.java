@@ -1,4 +1,4 @@
-package campus.javafxGUI;
+package campus.javafxgui;
 
 import campus.Campus;
 import javafx.application.Application;

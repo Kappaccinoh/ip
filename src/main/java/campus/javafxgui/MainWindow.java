@@ -1,4 +1,4 @@
-package campus.javafxGUI;
+package campus.javafxgui;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 import javafx.application.Platform;
 import campus.Campus;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;

@@ -1,6 +1,6 @@
 package campus;
 
-import campus.javafxGUI.Main;
+import campus.javafxgui.Main;
 import javafx.application.Application;
 
 /**
