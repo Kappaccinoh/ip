@@ -125,8 +125,11 @@ public class Parser {
     }
 
     /**
-     * Function to handle the command of type 'find' which deals with filtering a specific substring.
-     * @param remaining the remaining portion of the command line entered
+     * Handles the 'find' command by searching for tasks matching the given criteria
+     * and displaying them.
+     *
+     * @param remaining The criteria to search for within the task list.
+     * @return A string representation of the tasks matching the search criteria.
      */
     public String handleFindCommand(String remaining) {
         TaskList tempTaskList = this.taskList.getTaskListWhere(remaining);
