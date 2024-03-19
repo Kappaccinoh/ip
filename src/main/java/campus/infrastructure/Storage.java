@@ -83,10 +83,13 @@ public class Storage {
     }
 
     /**
-     * Function to read from the expected file called "data", if not, create the file and return null.
-     * @param filePath Takes in the relative path file that it expects the datafile to be at.
-     * @return Returns a list of strings, each string contains information about the DB, +
-     *      null if initialised for the first time.
+     * Reads data from the specified database file. If the file does not exist, it creates
+     * a new file at the given path.
+     *
+     * @param filePath The path to the database file.
+     * @return A list of strings containing the data read from the database file, or null if the file
+     *         was just created.
+     * @throws IOException If an I/O error occurs while reading the file.
      */
     public List<String> readFromDBCreateIfNotExists(String filePath) throws IOException {
         Path path = Paths.get(filePath);
